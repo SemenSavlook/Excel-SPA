@@ -1,0 +1,12 @@
+git config --global alias.gc 'commit -m'
+
+git init связать с удаленным репозиторием
+npm init - список зависимостей
+npm install webpack webpack-cli --save-dev
+npm install --save-dev html-webpack-plugin
+npm install copy-webpack-plugin --save-dev
+npm install --save-dev clean-webpack-plugin
+npm install --save-dev mini-css-extract-plugin
+
+npm install sass-loader sass --save-dev
+npm install -D css-loader
