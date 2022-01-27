@@ -21,3 +21,5 @@ npm i -D webpack-dev-server (change package.json & webpack.config)
 
 npm i -D eslint eslint-loader babel-eslint (+ add config .eslintrc)
 
+npm i normalize.css
+
