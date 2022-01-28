@@ -7,7 +7,9 @@
   },
   "rules": {
     "comma-dangle": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "object-curly-spacing": "off",
+    "semi": ["warn", "always"]
   },
   "extends": [
     "eslint:recommended",
