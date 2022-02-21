@@ -11,4 +11,4 @@ const excel = new Excel('#app', {
 
 excel.render();
 
-console.log('Excsle: ', excel);
+console.log('Excel: ', excel);
