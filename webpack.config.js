@@ -14,9 +14,7 @@ const jsLoaders = () => {
     {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env'],
-        fix: true,
-        emitWarning: true
+        presets: ['@babel/preset-env']
       },
     },
   ];
