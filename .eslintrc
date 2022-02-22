@@ -10,7 +10,12 @@
     "require-jsdoc": "off",
     "object-curly-spacing": "off",
     "semi": ["warn", "always"],
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "max-len": ["error", {
+        "code": 100,
+        "ignoreTemplateLiterals": true
+      }
+    ]
   },
   "extends": [
     "eslint:recommended",
