@@ -7,7 +7,18 @@
   },
   "rules": {
     "comma-dangle": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "object-curly-spacing": "off",
+    // "semi": ["error", "never"],
+    "semi": ["warn", "always"],
+    "operator-linebreak": "off",
+    // "no-console": "off",
+    // "no-debugger": "warn",
+    "max-len": ["error", {
+        "code": 100,
+        "ignoreTemplateLiterals": true
+      }
+    ]
   },
   "extends": [
     "eslint:recommended",

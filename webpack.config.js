@@ -14,7 +14,7 @@ const jsLoaders = () => {
     {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env'],
+        presets: ['@babel/preset-env']
       },
     },
   ];
@@ -47,6 +47,9 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: isDev,
+    client: {
+      overlay: false,
+    },
   },
 
   plugins: [

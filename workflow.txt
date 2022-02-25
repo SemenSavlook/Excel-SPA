@@ -15,6 +15,9 @@ npm install --save-dev babel-loader @babel/core
 npm install @babel/preset-env --save-dev , add "browserslist": "> 0.25%, not dead" in package.json
 npm install --save @babel/polyfill - regenerator runtime
 
+Добавить плагин для babel если не поддерживаются свойство классов
+npm i -D @babel/plugin-proposal-class-properties + добавить в webpack плагин
+
 npm i -D cross-env - передача окружения при сборках
 
 npm i -D webpack-dev-server (change package.json & webpack.config)
@@ -22,4 +25,3 @@ npm i -D webpack-dev-server (change package.json & webpack.config)
 npm i -D eslint eslint-loader babel-eslint (+ add config .eslintrc)
 
 npm i normalize.css
-
