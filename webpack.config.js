@@ -47,6 +47,9 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: isDev,
+    client: {
+      overlay: false,
+    },
   },
 
   plugins: [
