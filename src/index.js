@@ -12,4 +12,3 @@ const excel = new Excel('#app', {
 excel.render();
 
 console.log('Excel: ', excel);
-
