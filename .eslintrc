@@ -12,7 +12,8 @@
     // "semi": ["error", "never"],
     "semi": ["warn", "always"],
     "operator-linebreak": "off",
-    "no-console": "warn",
+    "no-console": "off",
+    // "no-console": "warn",
     // "no-debugger": "warn",
     "max-len": ["error", {
         "code": 100,
