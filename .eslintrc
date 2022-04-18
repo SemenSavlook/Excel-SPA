@@ -22,7 +22,8 @@
       }
     ]
     ,
-    "emitWarning": "off"
+    "emitWarning": "off",
+    "no-trailing-spaces": ["off"]
   },
   "extends": [
     "eslint:recommended",
