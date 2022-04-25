@@ -8,9 +8,11 @@ import { $ } from '@core/dom';
 export class Table extends ExcelComponent {
   static className = 'excel__table';
 
-  constructor($root) {
+  constructor($root, options) {
     super($root, {
-      listeners: ['mousedown', 'keydown']
+      name: 'Table',
+      listeners: ['mousedown', 'keydown'],
+      ...options
     });
   }
 
@@ -25,8 +27,13 @@ export class Table extends ExcelComponent {
   init() {
     super.init();
 
-    const $cells = this.$root.find('[data-id="0:0"]');
-    this.selection.select($cells);
+    const $cell = this.$root.find('[data-id="0:0"]');
+    this.selection.select($cell);
+
+    this.emitter.subscribe('It is working', (text) => {
+      this.selection.current.text(text);
+      console.log('Table from formula', text);
+    });
   }
 
   onMousedown(event) {
