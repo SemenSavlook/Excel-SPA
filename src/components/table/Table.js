@@ -21,7 +21,7 @@ export class Table extends ExcelComponent {
   }
 
   prepare() {
-    this.selection = new TableSelection;
+    this.selection = new TableSelection();
   }
 
   init() {
@@ -30,7 +30,7 @@ export class Table extends ExcelComponent {
     const $cell = this.$root.find('[data-id="0:0"]');
     this.selection.select($cell);
 
-    this.emitter.subscribe('It is working', (text) => {
+    this.$on('It is working', (text) => {
       this.selection.current.text(text);
       console.log('Table from formula', text);
     });
