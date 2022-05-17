@@ -43,9 +43,18 @@ export class Table extends ExcelComponent {
     this.$emit('table:select', $cell);
   }
 
+  async resizeTable(event) {
+    try {
+      const data = await resizeHanlder(this.$root, event);
+      this.$dispatch({type: 'TABLE_RESIZE', data});
+    } catch (e) {
+      console.warn('resize error', e.message);
+    }
+  }
+
   onMousedown(event) {
     if (shouldResize(event)) {
-      resizeHanlder(this.$root, event);
+      this.resizeTable(event);
     } else if (isCell(event)) {
       const $target = $(event.target);
       if (event.shiftKey) {
@@ -53,7 +62,7 @@ export class Table extends ExcelComponent {
             .map((id) => this.$root.find(`[data-id="${id}"]`));
         this.selection.selectGroup($cells);
       } else {
-        this.selection.select($target);
+        this.selectCell($target);
       }
     }
   }

@@ -9,15 +9,15 @@
     "comma-dangle": "off",
     "require-jsdoc": "off",
     "object-curly-spacing": "off",
-    // "semi": ["error", "never"],
+    "eol-last": "off",
     "semi": ["warn", "always"],
     "operator-linebreak": "off",
-    "no-console": "warn",
     // "no-console": "warn",
+    "no-console": "off",
     // "no-debugger": "off",
     "no-unused-vars": "warn",
     "max-len": ["error", {
-        "code": 100,
+        "code": 120,
         "ignoreTemplateLiterals": true
       }
     ]
