@@ -4,20 +4,21 @@ import { resizeHanlder } from './table.resize';
 import { createTable } from './table.template';
 import { TableSelection } from './TableSelection';
 import { $ } from '@core/dom';
+import * as actions from '@/redux/actions';
 
 export class Table extends ExcelComponent {
   static className = 'excel__table';
 
   constructor($root, options) {
     super($root, {
-      name: 'Table',
+      name: 'Table', 
       listeners: ['mousedown', 'keydown', 'input'],
       ...options
     });
   }
 
   toHTML() {
-    return createTable(20);
+    return createTable(20, this.store.getState());
   }
 
   prepare() {
@@ -46,7 +47,7 @@ export class Table extends ExcelComponent {
   async resizeTable(event) {
     try {
       const data = await resizeHanlder(this.$root, event);
-      this.$dispatch({type: 'TABLE_RESIZE', data});
+      this.$dispatch(actions.tableResize(data));
     } catch (e) {
       console.warn('resize error', e.message);
     }

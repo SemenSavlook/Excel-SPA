@@ -1,67 +1,99 @@
 const CODES = {
   A: 65,
   Z: 90
-};
-
-function toCell(row) {
-  return function(_, col) {
-    return `
-    <div 
-    class="cell" 
-    contenteditable 
-    data-col="${col}" 
-    data-type="cell" 
-    data-id="${row}:${col}"
-    ></div>
-  `;
-  };
 }
 
-function toColumn(col, index) {
+const DEFAULT_WIDTH = 120
+
+// Получение ширины из стора
+function getWidth(state, index) {
+  return (state[index] || DEFAULT_WIDTH) + 'px'
+}
+
+// Создание ячейки
+function toCell(state, row) {
+  return function(_, col) {
+    const width = getWidth(state.colState, col)
+    return `
+      <div 
+        class="cell" 
+        contenteditable 
+        data-col="${col}"
+        data-type="cell"
+        data-id="${row}:${col}"
+        style="width: ${width}"
+      ></div>
+    `
+  }
+}
+
+// Создание колонки
+function toColumn({col, index, width}) {
   return `
-    <div class="column" data-type="resizable" data-col="${index}">
+    <div 
+      class="column" 
+      data-type="resizable" 
+      data-col="${index}" 
+      style="width: ${width}"
+    >
       ${col}
       <div class="col-resize" data-resize="col"></div>
-    </div>`;
+    </div>
+  `
 }
 
+// Создание структуры строчки
 function createRow(index, content) {
-  const resize = index ? '<div class="row-resize" data-resize="row"></div>' : '';
+  const resize = index ? '<div class="row-resize" data-resize="row"></div>' : ''
   return `
-  <div class="row" data-type="resizable">
-    <div class="row-info">
-      ${index ? index : ''}
-      ${resize}
+    <div class="row" data-type="resizable">
+      <div class="row-info">
+        ${index ? index : ''}
+        ${resize}
       </div>
-    <div class="row-data">${content}</div>
-  </div>
-  `;
+      <div class="row-data">${content}</div>
+    </div>
+  `
 }
 
+// Получение буквы-символа для заголовка
 function toChar(_, index) {
-  return String.fromCharCode(CODES.A + index);
+  return String.fromCharCode(CODES.A + index)
 }
 
-export function createTable(rowsCount = 15) {
-  const colsCount = CODES.Z - CODES.A + 1;
-  const rows = [];
+// Объект с индексом колонки и шириной ячейки
+function withWidthFrom(state) {
+  return function(col, index) {
+    return {
+      col, index, width: getWidth(state.colState, index)
+    }
+  }
+}
 
+// Создание таблицы
+export function createTable(rowsCount = 15, state = {}) {
+  // Compute cols count
+  const colsCount = CODES.Z - CODES.A + 1 
+  const rows = []
+
+  // Формирование шапки 
   const cols = new Array(colsCount)
       .fill('')
       .map(toChar)
+      .map(withWidthFrom(state))
       .map(toColumn)
-      .join('');
+      .join('')
 
   rows.push(createRow(null, cols));
 
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell(row))
-        .join('');
+        .map(toCell(state, row))
+        .join('')
 
-    rows.push(createRow(row + 1, cells));
+    rows.push(createRow(row + 1, cells))
   }
 
-  return rows.join('');
+  return rows.join('')
 }

@@ -1,3 +1,4 @@
+// Прослойка для взаимодействия с данными, подписывается на определенный тип событий и отправляет-уведомляет
 export function createStore(rootReducer, initialState = {}) {
   let state = rootReducer({...initialState}, { type: '__INIT__'});
   let listeners = [];
@@ -6,15 +7,17 @@ export function createStore(rootReducer, initialState = {}) {
     subscribe(fn) {
       listeners.push(fn);
       return {
-        unsubcribe() {
+        unsubscribe() {
           listeners = listeners.filter((l) => l !== fn);
         }
       };
     },
+
     dispatch(action) {
       state = rootReducer(state, action);
       listeners.forEach((listener) => listener(state));
     },
+
     getState() {
       return state;
     }
