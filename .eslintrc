@@ -14,7 +14,7 @@
     "operator-linebreak": "off",
     // "no-console": "warn",
     "no-console": "off",
-    // "no-debugger": "off",
+    "no-debugger": "off",
     "no-unused-vars": "warn",
     "max-len": ["error", {
         "code": 120,

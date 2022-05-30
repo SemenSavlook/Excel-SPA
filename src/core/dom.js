@@ -88,6 +88,7 @@ class Dom {
         col: + parsed[1]
       };
     }
+    console.log(this.data.id);
     return this.data.id;
   }
 
