@@ -3,7 +3,7 @@ import { storage } from '../core/utils'
 const defaultState = {
   rowState: {},
   colState: {},
-  dataState: {}, // {0:1: 'some-text}
+  dataState: {}, // {0:1: 'some-text'}
   currentText: ''
 }
 

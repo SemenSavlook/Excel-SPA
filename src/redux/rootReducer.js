@@ -11,11 +11,9 @@ export function rootReducer(state, action) {
       prevState = state[field] || {};
       prevState[action.data.id] = action.data.value;
       return { ...state, [field]: prevState};
+
     case CHANGE_TEXT:
       prevState = state['dataState'] || {};
-      console.log(state.dataState);
-      // console.log(action)
-      // console.log(action.data.id);
       prevState[action.data.id] = action.data.value;
       return {...state, currentText: action.data.value, dataState: prevState}
     default: return state;

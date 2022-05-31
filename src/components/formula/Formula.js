@@ -29,7 +29,7 @@ export class Formula extends ExcelComponent {
     });
 
     this.$subscribe((state) => {
-      // console.log('Formula update: ', state.currentText);
+      console.log('Formula update: ', state.currentText);
       this.$formula.text(state.currentText);
     });
   }
