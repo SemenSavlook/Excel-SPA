@@ -3,7 +3,9 @@ function toButton(button) {
     data-type="button"
     data-value='${JSON.stringify(button.value)}'`;
   return `
-  <div class="button ${button.active ? 'active': ''}" ${meta}>
+  <div 
+    class="button ${button.active ? 'active': ''}" 
+    ${meta}>
     <span class="material-icons" ${meta}>
       ${button.icon}
     </span>
@@ -12,6 +14,7 @@ function toButton(button) {
 }
 
 export function createToolbar(s) {
+  console.log(77777, s);
   const buttons = [
     {
       value: { textAlign: 'left' },
