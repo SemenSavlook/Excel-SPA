@@ -19,6 +19,7 @@ export function createStore(rootReducer, initialState = {}) {
     },
 
     getState() {
+      // console.log(state);
       return JSON.parse(JSON.stringify(state));
     }
   };

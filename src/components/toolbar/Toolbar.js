@@ -20,7 +20,6 @@ export class Toolbar extends ExcelStateComponent {
   }
 
   get template() {
-    console.log(8888, this.state)
     return createToolbar(this.state);
   }
 
@@ -29,7 +28,7 @@ export class Toolbar extends ExcelStateComponent {
   }
 
   storeChanged(changes) {
-    this.setState(changes.currentSyles);
+    this.setState(changes.currentStyles);
   }
 
   onClick(event) {
