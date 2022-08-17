@@ -15,4 +15,8 @@
   .button {
     @include button(green);
   }
+
+  .button:nth-child(3) {
+    margin-right: 3px;
+  }
 }

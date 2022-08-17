@@ -1,8 +1,8 @@
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // Чистит указанную папку
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // Работает c html типмлейтом, подключает js файлы
+const CopyPlugin = require('copy-webpack-plugin'); // Копирует статические элементы
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //  Выносит css из js в отдельный css
 
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
