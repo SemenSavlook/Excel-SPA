@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack'); // webpack.DefinePlugin - определяет перемнные окружения во время компиляции
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // Чистит указанную папку
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Работает c html типмлейтом, подключает js файлы
 const CopyPlugin = require('copy-webpack-plugin'); // Копирует статические элементы
@@ -74,6 +75,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: fileName('css'),
     }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ],
 
   module: {
