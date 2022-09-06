@@ -40,7 +40,7 @@ export class ExcelComponent extends DomListener {
   }
 
   isWatching(key) {
-    return this.subscribe.includes(key)
+    return this.subscribe.includes(key);
   }
 
   // Инициализация компонента
